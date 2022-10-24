@@ -1,0 +1,3 @@
+[submodule "extern/libPSI"]
+	path = extern/libPSI
+	url = https://github.com/osu-crypto/libPSI.git
