@@ -5,6 +5,8 @@ project(libpsi_cmake)
 # 定义自己的cmake模块所在的路径
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
+add_definitions(-DSOLUTION_DIR='${CMAKE_SOURCE_DIR}')
+
 # Build mode
 if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
    SET(CMAKE_BUILD_TYPE Release)
