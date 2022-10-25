@@ -2,6 +2,15 @@ cmake_minimum_required(VERSION 3.11)
 
 project(libpsi_cmake)
 
+# 定义自己的cmake模块所在的路径
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+
+# Build mode
+if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+   SET(CMAKE_BUILD_TYPE Release)
+endif()
+
+# 查找libPSI
 find_package(libPSI QUIET)
 if (libPSI_FOUND)
     message(STATUS "Found libPSI")
@@ -18,7 +27,9 @@ elseif (NOT libPSI_FOUND)
     message("added")
 endif ()
 
-include_directories(${PROJECT_SOURCE_DIR}/extern)
+include_directories(${PROJECT_SOURCE_DIR}/extern
+                    ${PROJECT_SOURCE_DIR}/extern/libPSI
+                    )
 
 add_executable(test test.cpp)
 
