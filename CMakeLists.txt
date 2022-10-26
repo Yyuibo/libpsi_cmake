@@ -11,7 +11,7 @@ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
 endif()
 
 # 查找libPSI
-find_package(libPSI QUIET)
+find_package(libPSI REQUIRED)
 if (libPSI_FOUND)
     message(STATUS "Found libPSI")
 elseif (NOT libPSI_FOUND)
