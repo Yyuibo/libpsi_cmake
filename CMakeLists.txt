@@ -21,8 +21,8 @@ if(     NOT "${CMAKE_BUILD_TYPE}" STREQUAL "Release"
 endif()
 
 # -D 参数设置
-set(FETCH_AUTO ON CACHE BOOL)
-set(ENABLE_ALL_PSI ON CACHE BOOL)
+set(FETCH_AUTO ON CACHE BOOL "FETCH DEPENDENCIES AUTO" FORCE)
+set(ENABLE_ALL_PSI ON CACHE BOOL "ENABLE ALL PSI" FORCE)
 
 # 查找libPSI
 list(APPEND CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/extern/libPSI/out/build/linux")
@@ -57,5 +57,6 @@ include_directories(${PROJECT_SOURCE_DIR}/extern/libPSI/out/install/linux
 add_executable(test test.cpp)
 
 target_link_libraries(test PUBLIC libPSI)
+
 
 
